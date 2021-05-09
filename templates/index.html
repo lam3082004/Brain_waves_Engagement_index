@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>LQ PRO</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/css/album.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" >
+    <style>
+        div#quizz {
+            border:#5AB029 3px solid;
+            padding:10px 40px 40px 40px;    
+            background-color:#E5FCE3;
+        }
+        .col-centered{
+            float: none;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="collapse bg-dark" id="navbarHeader">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-8 col-md-7 py-4">
+                        <h4 class="text-white">My Team</h4>
+                        <p class="text-muted">Bùi Tùng Lâm</p>
+                        <p class="text-muted">Lê Đình Quốc</p>
+                    </div>
+                    <div class="col-sm-4 offset-md-1 py-4">
+                        <h4 class="text-white">Contact</h4>
+                        <ul class="list-unstyled">
+                            <li><a href="http://truongthptchuyen.vinhuni.edu.vn" class="text-white">My school</a></li>
+                            <li><a href="https://www.facebook.com/profile.php?id=100016689363363" class="text-white">Like on Facebook</a></li>
+                            <li><a href="mailto:lam3082004@gmail.com" class="text-white">Email us</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="navbar navbar-dark bg-dark box-shadow">
+            <div class="container d-flex justify-content-between">
+                <a href="#" class="navbar-brand d-flex align-items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+                    <strong>Lâm Quốc</strong>
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main role="main">
+
+        <section class="text-center">
+            <div class="row">
+                <div class="col-md-12" style="margin-top: 10px;">
+                    <div class="container">
+                        <div id="container-chart" style="width:100%"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="album py-5 bg-light">
+            <div class="container">
+                <div class="row" style="margin-bottom: 10px;">
+                    <div class="col-md-12">
+                        <div class="card mb-12 box-shadow">
+                            <video id="kc-video" loop="true" controls=""
+                                   src="/videos/4.mp4"
+                                   class="bs-card-video">
+                            </video>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-2 offset-md-5">
+                                        <!--<p class="card-text">Xem clip trên đây để đánh giá độ tập trung của bạn</p>-->
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div class="btn-group btn-group-lg">
+                                                <button id="kc-vid-play" type="button" title="Xem" class="btn btn-sm btn-outline-primary">
+                                                    <i class="bi bi-collection-play-fill"></i>
+                                                </button>
+                                                <button id="kc-vid-stop" type="button" title="Dừng và lưu dữ liệu" class="btn btn-sm btn-outline-danger">
+                                                    <i class="bi bi-stop-circle-fill"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-body">
+                              <div id="quizz_status" class="alert alert-primary " role="alert">Nhấn nút Start để bắt đầu trắc nghiệm</div>
+                                <div id="quizz">
+                                    <div class="row">
+                                        <div class="col-md-2 offset-md-5" style="text-align: center;">
+                                            <button id="start-quizz" class='btn btn-danger'>
+                                                <i class="bi bi-collection-play-fill"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section class="text-center">
+            <div class="row">
+                <div class="col-md-12" style="margin-top: 10px;">
+                    <div class="container">
+                        <div id="container-chart-col" style="width:100%"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 offset-md-5">
+                    <img src = "{{url_for ('static', filename = 'b.jpg')}}" class="img-thumbnail" />
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="text-muted">
+        <div class="container">
+            <p>&copy; Lâm Quốc</p>
+        </div>
+    </footer>
+
+    <!-- Modal -->
+    <div class="modal fade" id="loadingModal" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" style="width:50px;height:50px;">
+            <div class="modal-body">
+                <div class="text-center">
+                    <div class="spinner-border text-info" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>-->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <!-- <script>window.jQuery || document.write('<script src="/js/vendor/jquery-slim.min.js"><\/script>')</script>-->
+    <script src="/js/vendor/popper.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/vendor/holder.min.js"></script>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.2/socket.io.js"></script>-->
+    <script src="https://code.highcharts.com/highcharts.src.js"></script>
+
+    {% if static_version %}
+    <script src="/js/kc.js?v={{static_version}}"></script>
+    <script src="/js/chart.js?v={{static_version}}"></script>
+    <script src="/js/quiz.js?v={{static_version}}"></script>
+    {% else %}
+    <script src="/js/kc.js"></script>
+    <script src="/js/chart.js"></script>
+    <script src="/js/quiz.js"></script>
+    {% endif %}
+
+    <script type="text/javascript" charset="utf-8">
+        var socket = io();
+        socket.on('connect', function() {
+            socket.emit('start_chart', {data: 'I\'m connected! let me show your data chart, please'});
+            socket.on('draw_chart', function(chart_data) {
+                /*var renderData = {};
+                for(var i=0; i < chart_data.cols.length; i++) {
+                    var chanel_index = chart_data.cols[i].split('/');
+                    var chanel = chanel_index[0];
+                    var index = chanel_index[1];
+                    var value = chart_data.stream_data[i];
+                    if(!(chanel in renderData)) {
+                        renderData[chanel] = {
+                            "name": chanel,
+                            "data": [value]
+                        };
+                    } else {
+                        renderData[chanel].data.push(value);
+                    }
+                }*/
+                var renderData = chart_data["column_data"];
+                var x = (new Date()).getTime(), // current time
+                    y = chart_data["engagement_average"];
+                chartLine.series[0].addPoint([x, y], true, true);
+
+                for(var ix=0; ix < chartCol.series.length; ix++) {
+                    var seriesName = chartCol.series[ix].getName();
+                    var newData = renderData[seriesName].data;
+                    chartCol.series[ix].setData(newData);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
